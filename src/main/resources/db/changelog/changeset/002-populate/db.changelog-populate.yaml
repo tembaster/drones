@@ -1,0 +1,68 @@
+databaseChangeLog:
+  - changeSet:
+      id: populate-data
+      author: Astrakhantsev Artem
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: b233ecb2-1b41-45d9-a8b8-3910e36ddbb1
+              - column:
+                  name: serial
+                  value: 9HWovf35qu7wIbI
+              - column:
+                  name: model
+                  value: LIGHTWEIGHT
+              - column:
+                  name: weight
+                  valueNumeric: 150
+              - column:
+                  name: battery_capacity
+                  valueNumeric: 100
+              - column:
+                  name: state
+                  value: IDLE
+            tableName: obj_drone
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: ed09dc5d-836a-4add-aace-c63b7c716b18
+              - column:
+                  name: serial
+                  value: PuS3cZSzOGikKMe
+              - column:
+                  name: model
+                  value: HEAVYWEIGHT
+              - column:
+                  name: weight
+                  valueNumeric: 450
+              - column:
+                  name: battery_capacity
+                  valueNumeric: 90
+              - column:
+                  name: state
+                  value: IDLE
+            tableName: obj_drone
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 4378f3ab-a176-4c72-bd67-c71858095d5f
+              - column:
+                  name: name
+                  value: PuS3cZSzOGikKMe
+              - column:
+                  name: weight
+                  valueNumeric: 50
+              - column:
+                  name: code
+                  value: CJ0T832G1N_3XF7FKG0H
+              - column:
+                  name: image
+                  value: //some/path//
+              - column:
+                  name: drone_id
+                  value: ed09dc5d-836a-4add-aace-c63b7c716b18
+            tableName: obj_medication

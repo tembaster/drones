@@ -1,0 +1,74 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-table-drone
+      author: Astrakhantsev Artem
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: drone_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: serial
+                  type: VARCHAR(100)
+              - column:
+                  name: model
+                  type: VARCHAR(50)
+              - column:
+                  name: weight
+                  type: BIGINT
+              - column:
+                  name: battery_capacity
+                  type: BIGINT
+              - column:
+                  name: state
+                  type: VARCHAR(50)
+            tableName: obj_drone
+  - changeSet:
+      id: init-table-med
+      author: Astrakhantsev Artem
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: medication_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+              - column:
+                  name: weight
+                  type: BIGINT
+              - column:
+                  name: code
+                  type: VARCHAR
+              - column:
+                  name: image
+                  type: VARCHAR(500)
+              - column:
+                  name: drone_id
+                  type: VARCHAR(500)
+            tableName: obj_medication
+  - changeSet:
+      id: add-foreign-key
+      author: Astrakhantsev Artem
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: drone_id
+            baseTableName: obj_medication
+            constraintName: fk_drone_med
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: obj_drone
+            validate: true
